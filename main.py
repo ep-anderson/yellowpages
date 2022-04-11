@@ -40,7 +40,7 @@ cities = tsv_to_list('cities.tsv')
 options = webdriver.FirefoxOptions()
 
 #creates browser
-driver = webdriver.Firefox(executable_path="C:\\Users\\19p00\\.wdm\\drivers\\geckodriver\\win64\\v0.30.0\\geckodriver.exe", options=options)
+driver = webdriver.Firefox(executable_path="FILEPATH\\geckodriver.exe", options=options)
 
 
 ### ITERATING OVER INPUT DATA ###
