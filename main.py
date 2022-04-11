@@ -39,6 +39,9 @@ cities = tsv_to_list('cities.tsv')
 #setting options for browser
 options = webdriver.FirefoxOptions()
 
+#removing popup
+options.headless = True
+
 #creates browser
 driver = webdriver.Firefox(executable_path="FILEPATH\\geckodriver.exe", options=options)
 
@@ -61,7 +64,7 @@ for business in businesses:
             count = 0
         
             #creates and calls url based on location and business type
-            url = f'https://www.yellowpages.com/search?search_terms={business}&geo_location_terms={city}&s=average_rating&page={page_number}'
+            url = f'https://www.yellowpages.com/search?search_terms={business[0]}&geo_location_terms={city[0]}&s=average_rating&page={page_number}'
             driver.get(url)
 
             content = driver.page_source
@@ -100,16 +103,3 @@ df = pd.DataFrame(yellowpage_data, columns=['Company Name', 'Phone Number', 'Add
 
 df.to_csv('yellowpagesdata.csv',index=False)
          
-
-
-
-
-
-
-
-
-
-
-
-
-
